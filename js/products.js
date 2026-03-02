@@ -3,7 +3,6 @@ const products = [
     { name: "Truck Clutch Plate", category: "truck" },
     { name: "New Holland Tractor Parts", category: "tractor" },
     { name: "Engine Oil", category: "oil" },
-    { name: "Amaron Battery", category: "battery" },
     { name: "JCB Hydraulic Pump", category: "jcb" }
 ];
 
