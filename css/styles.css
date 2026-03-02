@@ -1,9 +1,29 @@
 body {
 margin:0;
 font-family: 'Segoe UI', sans-serif;
-background:#f5f7fa;
-color:#222;
+background:var(--bg-color, #f5f7fa);
+color:var(--text-color, #222);
 }
+
+/* theme variables */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #333333;
+    --nav-bg: #222222;
+    --nav-text: #ffffff;
+    --primary-bg: #b30000;
+    --secondary-bg: #555555;
+}
+
+.dark-theme {
+    --bg-color: #181818;
+    --text-color: #dddddd;
+    --nav-bg: #121212;
+    --nav-text: #ffffff;
+    --primary-bg: #ff4d4d;
+    --secondary-bg: #333333;
+}
+
 
 .container {
 width:90%;
@@ -20,7 +40,7 @@ padding:60px 20px;
 }
 
 nav {
-background:#111;
+background:var(--nav-bg, #111);
 padding:15px 0;
 position: sticky;
 top: 0;
@@ -28,13 +48,18 @@ z-index: 1000;
 }
 
 .nav-links {
-display:flex;
-justify-content:center;
-gap:30px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links .links {
+    display: flex;
+    gap: 30px;
 }
 
 nav a {
-color:white;
+color:var(--nav-text, white);
 text-decoration:none;
 font-weight:500;
 }
@@ -54,14 +79,14 @@ padding:100px 20px;
 display:inline-block;
 padding:10px 20px;
 margin-top:15px;
-background:#b30000;
+background:var(--primary-bg, #b30000);
 color:white;
 text-decoration:none;
 border-radius:5px;
 }
 
 .btn-secondary {
-background:#222;
+background:var(--secondary-bg, #222);
 }
 
 .features {
@@ -124,28 +149,36 @@ padding:20px;
 margin-top:40px;
 }
 
-/* WhatsApp floating icon */
-.whatsapp-float {
-position: fixed;
-bottom: 20px;
-right: 20px;
-background: #25D366;
-color: white;
-font-size: 24px;
-width: 55px;
-height: 55px;
-display: flex;
-align-items: center;
-justify-content: center;
-border-radius: 50%;
-box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-text-decoration: none;
-z-index: 999;
-transition: 0.3s;
+/* WhatsApp link in text */
+.whatsapp-link {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: 600;
 }
 
-.whatsapp-float:hover {
-transform: scale(1.1);
+.whatsapp-link:hover {
+    text-decoration: underline;
+}
+
+/* theme toggle button */
+.theme-toggle {
+    background: var(--nav-text, #ffffff);
+    border: none;
+    color: var(--nav-bg, #111);
+    font-size: 18px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-toggle:hover {
+    background: var(--primary-bg, #b30000);
+    color: #fff;
 }
 
 .hero-modern {
