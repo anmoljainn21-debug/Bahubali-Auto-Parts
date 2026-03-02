@@ -47,10 +47,18 @@ top: 0;
 z-index: 1000;
 }
 
+/* make nav links container a positioning context so we can absolutely position the toggle */
 .nav-links {
     display:flex;
-    justify-content: space-between;
+    justify-content: center; /* center the links group */
     align-items: center;
+    position: relative;
+}
+
+/* ensure the link group has spacing between items */
+.nav-links .links {
+    display: flex;
+    gap: 30px;
 }
 
 .nav-links .links {
@@ -149,6 +157,42 @@ padding:20px;
 margin-top:40px;
 }
 
+/* contact form card */
+.contact-card {
+    background: white;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    max-width: 600px;
+    margin: 30px auto;
+}
+
+.contact-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-card input,
+.contact-card textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: 16px;
+}
+
+.contact-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.contact-card button {
+    align-self: flex-end;
+}
+
 /* WhatsApp link in text */
 .whatsapp-link {
     color: #25D366;
@@ -174,6 +218,12 @@ margin-top:40px;
     align-items: center;
     justify-content: center;
     transition: background 0.3s, color 0.3s;
+
+    /* fixed at the top-right corner of the page */
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1100; /* above nav */
 }
 
 .theme-toggle:hover {
